@@ -8,6 +8,7 @@ import { ListadoComponent } from './componentes/listado/listado.component';
 import { FormularioComponent } from './componentes/formulario/formulario.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { EditorModule } from '@tinymce/tinymce-angular';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
+    EditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

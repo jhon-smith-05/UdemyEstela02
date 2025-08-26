@@ -1,1 +1,111 @@
-<p>formulario works!</p>
+<p>
+    <button class="btn btn-warning" (click)="abrir()">Crear</button>
+</p>
+
+<ng-template #myModalConf let-modal>
+    <div class="modal-content">
+        <div class="modal-header text-white bg-primary mb-3">
+            <h4 class="modal-title">{{modalTitle}}</h4>
+            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close" (click)="modal.close('Cerrando desde la ventana')">
+            </button>
+        </div>
+        <div class="modal-body">
+            <!-- inicio -->
+      
+                <form [formGroup]="anotaciones" #formDir="ngForm">
+                    <div [hidden]="formDir.submitted">
+                        <div class="cross-validation" [class.cross-validation-error]="anotaciones.invalid && (anotaciones.touched || anotaciones.dirty)">
+                            <div class="form-group">
+                                <label for="titulo">Titulo:</label>
+                                <input type="text" class="form-control" formControlName="titulo" placeholder="titulo" required />
+                                <div *ngIf="titulo.invalid && (titulo.touched || titulo.dirty)" class="alert alert-danger">
+                                    <div *ngIf="titulo.errors?.['required']">
+                                        El campo titulo es obligatorio
+                                    </div>
+                                    <div *ngIf="titulo.errors?.['minlength']">
+                                        El campo titulo debe tener al menos 4 caracteres
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="descripción">Descripción:</label>
+                                <editor formControlName="descripcion" apiKey="05hv3qlrz2dtk5sw359ir7gvlcrsdvmmphofe6azotk0d1hl" [init]="{
+                                    height: 200,
+                                    menubar: false,
+                                    plugins: [
+                                    'link'
+                                    ],
+                                    toolbar:
+                                    'undo redo | formatselect | bold italic backcolor | \
+                                    alignleft aligncenter alignright alignjustify | \
+                                    bullist numlist outdent indent | removeformat | help'
+                                    }">
+                                </editor>
+                                <div *ngIf="descripcion.invalid && (descripcion.touched || descripcion.dirty)" class="alert alert-danger">
+                                    <div *ngIf="descripcion.errors?.['required']">
+                                        El campo descripcion es obligatorio
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div>
+                        <button type="submit" class="btn btn-primary" (click)="enviar()" [disabled]="anotaciones.invalid">Enviar</button>
+                    </div>
+                </form>
+              
+
+    
+            <!-- fin -->            
+        </div>
+    </div>
+
+</ng-template>
+
+<!-- <div class="row">
+    <form name="form" id="form" (submit)="enviar()" #formulario="ngForm">
+            <div>
+                <label for="nombre">Nombre: </label>
+                <input type="text" name="nombre" class="form-control" [(ngModel)]="usuario.nombre" #nombre="ngModel" required="true">
+                <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="alert alert-danger">
+                    <div *ngIf="nombre.errors">
+                        El campo nombre es obligatorio
+                    </div>
+                </div>
+            </div>
+            <div>
+                <label for="apellido">Apellido: </label>
+                <input type="text" name="apellido" class="form-control" [(ngModel)]="usuario.apellido" #apellido="ngModel" required="true">
+                <div *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)" class="alert alert-danger">
+                    <div *ngIf="apellido.errors">
+                        El campo apellido es obligatorio
+                    </div>
+                </div>
+            </div>
+            <div>
+                <label for="telefono">Teléfono: </label>
+                <input type="number" name="telefono" class="form-control" [(ngModel)]="usuario.telefono" #telefono="ngModel" required="true">
+                <div *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)" class="alert alert-danger">
+                    <div *ngIf="telefono.errors">
+                        El campo telefono es obligatorio
+                    </div>
+                </div>
+            </div>
+            <div>
+                <label for="correo">E-Mail: </label>
+                <input type="text" name="correo" class="form-control" [(ngModel)]="usuario.correo" #correo="ngModel" required="true" pattern="^[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,4}$">
+                <div *ngIf="correo.invalid && (correo.dirty || correo.touched)" class="alert alert-danger">
+                    <div *ngIf="correo.errors">
+                        El campo E-Mail es obligatorio
+                    </div>
+                    <div *ngIf="!correo.valid || correo.touched"> 
+                        El E-Mail ingresado no es válido
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <input type="submit" value="Enviar" class="btn btn-success" [disabled]="!formulario.form.valid">
+            <hr>
+        </form>
+</div> -->
