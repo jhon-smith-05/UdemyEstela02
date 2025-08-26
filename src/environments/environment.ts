@@ -3,7 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  mapBoxToken: "pk.eyJ1IjoiYWdlbmNpYXRhbWlsYSIsImEiOiJjbGIxYTIyOTIxYmN2M3BtOWZwaHBpc2szIn0.o5-258tBNKjcSg7INn3K1Q",
+  base_url: "https://www.api.tamila.cl/",
+  api:"https://www.api.tamila.cl/api/",
+  correo: "jhon@hola.com",
+  pws: "Hola1234"
 };
 
 /*
