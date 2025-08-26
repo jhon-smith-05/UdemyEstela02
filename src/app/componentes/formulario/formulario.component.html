@@ -54,58 +54,7 @@
                         <button type="submit" class="btn btn-primary" (click)="enviar()" [disabled]="anotaciones.invalid">Enviar</button>
                     </div>
                 </form>
-              
-
-    
             <!-- fin -->            
         </div>
     </div>
-
 </ng-template>
-
-<!-- <div class="row">
-    <form name="form" id="form" (submit)="enviar()" #formulario="ngForm">
-            <div>
-                <label for="nombre">Nombre: </label>
-                <input type="text" name="nombre" class="form-control" [(ngModel)]="usuario.nombre" #nombre="ngModel" required="true">
-                <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="alert alert-danger">
-                    <div *ngIf="nombre.errors">
-                        El campo nombre es obligatorio
-                    </div>
-                </div>
-            </div>
-            <div>
-                <label for="apellido">Apellido: </label>
-                <input type="text" name="apellido" class="form-control" [(ngModel)]="usuario.apellido" #apellido="ngModel" required="true">
-                <div *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)" class="alert alert-danger">
-                    <div *ngIf="apellido.errors">
-                        El campo apellido es obligatorio
-                    </div>
-                </div>
-            </div>
-            <div>
-                <label for="telefono">Teléfono: </label>
-                <input type="number" name="telefono" class="form-control" [(ngModel)]="usuario.telefono" #telefono="ngModel" required="true">
-                <div *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)" class="alert alert-danger">
-                    <div *ngIf="telefono.errors">
-                        El campo telefono es obligatorio
-                    </div>
-                </div>
-            </div>
-            <div>
-                <label for="correo">E-Mail: </label>
-                <input type="text" name="correo" class="form-control" [(ngModel)]="usuario.correo" #correo="ngModel" required="true" pattern="^[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,4}$">
-                <div *ngIf="correo.invalid && (correo.dirty || correo.touched)" class="alert alert-danger">
-                    <div *ngIf="correo.errors">
-                        El campo E-Mail es obligatorio
-                    </div>
-                    <div *ngIf="!correo.valid || correo.touched"> 
-                        El E-Mail ingresado no es válido
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <input type="submit" value="Enviar" class="btn btn-success" [disabled]="!formulario.form.valid">
-            <hr>
-        </form>
-</div> -->
