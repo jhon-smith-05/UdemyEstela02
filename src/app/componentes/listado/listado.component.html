@@ -1,15 +1,15 @@
 <div class="list list-row block">
     
-    <div class="list-item" data-id="19">
+    <div *ngFor="let dato of datos" class="list-item" data-id="19">
         <div><a (click)="eliminar()" data-abc="true"><span class="w-48 avatar gd-primary">
             <img src="/assets/images/boton-eliminar.png" />
         </span></a></div>
         <div class="flex">
-            <a class="item-author text-color" data-abc="true">jhon bernal</a>
-            <div class="item-except text-muted text-sm h-1x"> dsfsdfsdf sdfsd sdfsd fsdf sd sd</div>
+            <a class="item-author text-color" data-abc="true"> {{dato.titulo}} </a>
+            <div class="item-except text-muted text-sm h-1x" [innerHTML]="dato.descripcion"> </div>
         </div>
         <div class="no-wrap">
-            <div class="item-date text-muted text-sm d-none d-md-block">13/12/18
+            <div class="item-date text-muted text-sm d-none d-md-block"> {{dato.fecha | date:'dd/MM/yyyy'}}
             </div>
         </div>
     </div>

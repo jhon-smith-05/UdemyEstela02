@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AnotacionesResponse } from 'src/app/interfaces/anotacionesResponse';
+import { ConsultasService } from 'src/app/service/consultas.service';
 
 @Component({
   selector: 'app-listado',
@@ -7,10 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListadoComponent implements OnInit {
 
-  datos:any;
-  constructor() { }
+  datos?:Array<AnotacionesResponse>;
+  constructor(
+    private service: ConsultasService,
+
+  ) { }
 
   ngOnInit(): void {
+    this.getPeticion();
+  }
+
+  getPeticion(){
+    this.service.getDatos().subscribe(
+      {
+        next: data => 
+        {
+          this.datos = data
+
+        },
+        error: error => 
+        {
+          console.log('Error', error) 
+        }
+      }
+    );
   }
 
   eliminar()

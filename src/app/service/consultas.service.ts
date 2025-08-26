@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -31,13 +31,19 @@ export class ConsultasService {
             }
           }
         );
-      
       }
    }
 
-   pedirToken(correo:any, pasword:any):Observable<any>
+   pedirToken(correo:any, password:any):Observable<any>
    {
-    return this.http.post(environment.api+"login", {correo: correo, pasword: pasword},{});
+    return this.http.post(environment.api+"login", {correo: correo, password: password},{});
+
+   }
+
+   getDatos():Observable<any>
+   {
+    let headers = new HttpHeaders().set('Authorization','Bearer'+localStorage.getItem('tokenAnotaciones'));
+    return this.http.get(environment.api+'anotaciones', {headers: headers});
 
    }
 
