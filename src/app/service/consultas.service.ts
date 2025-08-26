@@ -52,4 +52,10 @@ export class ConsultasService {
     return this.http.post(environment.api+'anotaciones', modelo, {headers: headers});
    }
 
+   deleteDatos(id:any):Observable<any>
+   {
+    let headers = new HttpHeaders().set('Authorization','Bearer'+localStorage.getItem('tokenAnotaciones'));
+    return this.http.delete(environment.api+'anotaciones/' + id, {headers: headers});
+   }
+
 }
